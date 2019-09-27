@@ -1,0 +1,28 @@
+@import './smart-grid.scss';
+@import './norm.scss';
+@import './app_settings.scss';
+@import './header.scss';
+@import './banner.scss';
+@import './strapline.scss';
+@import './divider.scss';
+@import './cta_area.scss';
+@import './slider.scss';
+@import './instagram_region.scss';
+@import'./footer.scss';
+
+
+.wrapper {
+    @include wrapper();
+}
+  
+.wrapper, .wrapper-fill {
+    margin-top: 50px;
+    overflow: visible;
+
+}
+
+.wrapper.wrapper-m-0, .wrapper-fill.wrapper-m-0 {
+    margin-top: 0;
+}
+
+

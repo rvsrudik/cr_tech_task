@@ -1,0 +1,39 @@
+.banner {
+    height: 400px;
+    background: url(/src/img/banner.png) no-repeat 0 0px;
+    background-size: cover;
+    position: relative;
+
+    @include xs(height, 200px);
+
+
+    &__content {
+            position: absolute;
+            top: 130px;
+            right: 5%;
+            width: 50%;
+            @include xs(top, 70px);
+            @include xs(width, 90%);
+        img {
+            width: 100%;
+            height: auto;
+            opacity: .9;
+           
+        }
+    }
+
+    &__subtitle {
+        text-transform: uppercase;
+        color: $c_null;
+        margin-top: 10px;
+        text-align: right;
+        text-shadow: 1px 1px 1px #000000a8;
+        cursor: pointer;
+        @include xs(font-size, 12px);
+        
+    }
+
+    &__arrow {
+        color: $c_accent;
+    }
+}

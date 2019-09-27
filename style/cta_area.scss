@@ -1,0 +1,45 @@
+.ctaWrapper {
+    @include row-flex();
+    align-items: center;
+    justify-content: center;
+}
+
+.cta {
+    @include col();
+    @include size(4);
+    @include size-xs(6);
+    margin: 5px;
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &__img {
+        filter: brightness(0.7);
+        transition: filter 500ms;
+    }
+
+    &:hover &__img {
+        filter: brightness(1);
+    }
+
+    &__title {
+        position: absolute;
+        font-size: 50px;
+        @include lg(font-size, 4vw);
+        @include xs(font-size, 20px);
+        text-transform: uppercase;
+        color: $c_null;
+    }
+
+    &__shopnow {
+        position: absolute;
+        margin-top: 40px;
+        @include xs(margin-top, 20px);
+        @include xs(font-size, 12px);
+        color: $c_null;
+        cursor: pointer;
+    }
+}

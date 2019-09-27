@@ -1,0 +1,196 @@
+.header-container {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $c_null;
+    box-shadow: 0px 0px 12px 0px #00000040;
+}
+
+.header{
+    @include row-flex();
+    padding: 30px 0px 15px 0;
+    background: $c_null;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer;
+
+    .search, &__logo, .smallNav{
+        @include col();
+    }
+
+    &__logo {
+        @include size(5);
+        @include size-md(6);
+    }
+
+
+
+    .menu {
+        flex-basis: 100%;
+        display: flex;
+        text-transform: uppercase;
+        justify-content: space-around;
+        margin: 0;
+        margin-top: 30px;
+
+       
+        @include sm(flex-direction, column);
+        @include sm(display, none);
+
+
+        li {
+            @include lg(font-size, 14px);
+            @include md(font-size, 12px);
+            margin-bottom: 5px;
+            position: relative;
+
+            &:hover .menu__expand {
+                display: flex;
+            }
+        }
+
+        &__expand {
+            display: none;
+            position: absolute;
+            background: white;
+            width: unset;
+            flex-wrap: wrap;
+            width: 600px;
+            @include lg(width, 300px);
+
+            padding: 40px 20px 20px 20px;
+            
+            @include sm(position, relative);
+            @include sm(padding, 10px 20px);
+            @include sm(top, 0px);
+            @include sm(overflow, scroll);
+            @include sm(max-height, 300px);
+
+
+            top: 15px;
+
+            &:hover {
+                display: flex;
+            }
+
+            li {
+                width: 50%;
+                @include lg(width, 100%);
+                margin-bottom: 10px;
+
+
+                .menu__expanitem:hover  {
+                    border-bottom: 4px solid $c_accent;
+                }
+            }
+        }
+    }
+
+    .toggle-mobile-menu {
+        display: none;
+        text-transform: uppercase;
+        @include sm(display, block);
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+
+    }
+
+    .toggle-mobile-menu.active ~ .menu {
+        display: flex;
+    }
+
+}
+
+.search {
+    @include col();
+    @include size(3);
+    @include md(display, none);
+
+    position: relative;
+    padding-left: 30px;
+    border-bottom: 1px solid $c_deafult;
+   
+    &__input {
+        border: none;
+        width: 100%;
+        position: relative;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        background: url(/src/img/search_icon.png) no-repeat 0px center;
+        left: 0;
+        background-size: 20px;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.smallNav {
+    @include row-flex();
+    @include col();
+    @include size(3);
+    @include size-md(6);
+
+    justify-content: flex-end;
+    margin: 0;
+    align-items: center;
+
+    &__user {
+        display: flex;
+        font-size: 12px;
+        line-height: 12px;
+        cursor: pointer;
+        @include sm(display, none);
+
+        li:not(:last-child) {
+            padding-right: 10px;
+            margin-right: 10px; 
+            border-right: 1px solid;
+        }   
+    }
+
+    &__icons {
+        display: flex;
+        cursor: pointer;
+        margin-left: 30px;
+        li:not(:last-child)  {
+            padding-right: 10px;
+            margin-right: 10px; 
+        }
+    }
+}
+
+body.scrolled {
+    .search {
+        display: none;
+    }
+
+    .smallNav {
+    }
+    .smallNav__user {
+        display: none;
+    }
+
+    .menu {
+        margin-top: 10px;
+    }
+
+    .header__logo {
+        @include size(6);
+        @include shift-left(3);
+        @include shift-md-left(0);
+        text-align: center;
+        @include md(text-align, left);
+        
+        img {
+            width: 200px;
+        }
+    }
+
+}

@@ -1,0 +1,45 @@
+.instaRegion {
+    @include row-flex();
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    &__card {
+    @include col();
+    @include size(2);
+    @include size-lg(3);
+    @include size-xs(6);
+    flex-grow: 1;
+    position: relative;
+    margin: 5px;
+    transition: transform 500ms;
+
+    img {
+        width: 100%;
+    }
+    }
+
+    &__card:hover {
+        transform: scale(1.2);
+        @include xs(transform, scale(1));
+        z-index: 1;
+        @include xs(z-index, 0);
+        box-shadow: 0px 0px 9px 2px #00000059;
+
+      
+    }
+
+    &__label {
+        background: $c_accent;
+        color: $c_100;
+        font-size: 24px;
+        text-transform: uppercase;
+        padding: 5px 30px;
+        position: absolute;
+    }
+
+    &:hover &__label {
+        display: none;
+        @include xs(display, block)
+    }
+}
